@@ -2,13 +2,16 @@ package game2d;
 
 import java.awt.event.*;
 
+import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
+
 public class GameController implements KeyListener {
 
     public boolean up, down, left, right, action_1;
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
+        try{
+            int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_UP) {
             up = true;
@@ -27,11 +30,18 @@ public class GameController implements KeyListener {
         if (key == KeyEvent.VK_X) {
             action_1 = true;
         }
+
+        }catch(Exception e){
+            System.out.println("Not a valid key");
+
+        }
+        
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
+        try{
+            int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_UP) {
             up = false;
@@ -48,6 +58,11 @@ public class GameController implements KeyListener {
         if (key == KeyEvent.VK_X) {
             action_1 = false;
         }
+
+        }catch(Exception e){
+            System.out.println("");
+        }
+        
     }
 
     @Override
